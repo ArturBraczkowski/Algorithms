@@ -3,9 +3,6 @@ package ArraySum;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * Created by artur on 06.08.2017.
- */
 public class arraySum {
     public static void main(String[] args) {
         Scanner myScanner = new Scanner(System.in);

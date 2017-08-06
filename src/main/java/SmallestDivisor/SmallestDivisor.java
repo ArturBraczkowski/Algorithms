@@ -2,9 +2,7 @@ package SmallestDivisor;
 
 import java.util.Scanner;
 
-/**
- * Created by artur on 06.08.2017.
- */
+
 public class SmallestDivisor {
     public static void main(String[] args) {
         Scanner myScanner = new Scanner(System.in);

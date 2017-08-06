@@ -2,9 +2,7 @@ package TheAbsoluteValue;
 
 import java.util.Scanner;
 
-/**
- * Created by artur on 06.08.2017.
- */
+
 public class TheAbsoluteValue {
     public static void main(String[] args) {
         Scanner myScanner = new Scanner(System.in);
