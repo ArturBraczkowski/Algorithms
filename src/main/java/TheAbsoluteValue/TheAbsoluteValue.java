@@ -1,3 +1,5 @@
+package TheAbsoluteValue;
+
 import java.util.Scanner;
 
 /**
