@@ -43,4 +43,21 @@ public class Helper {
         }
 
     }
+
+    public static String getStringFromUser(String info) {
+
+        System.out.println("Podaj wielkosc tablicy");
+        Scanner myScanner = new Scanner(System.in);
+        String result = myScanner.nextLine();
+        return result;
+
+    }
+
+    public static void printInt(int n) {
+        System.out.println(n);
+    }
+
+    public static void printString (String s) {
+        System.out.println(s);
+    }
 }
