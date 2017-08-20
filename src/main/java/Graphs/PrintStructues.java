@@ -15,4 +15,10 @@ public class PrintStructues {
         }
 
     }
+
+    public static void printE (Edge[] e) {
+        for (Edge item: e) {
+            System.out.println(item);
+        }
+    }
 }
