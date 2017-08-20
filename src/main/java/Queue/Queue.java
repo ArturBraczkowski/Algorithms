@@ -11,7 +11,7 @@ public class Queue {
     private QueueElement first = null;
     private QueueElement last = null;
 
-    public void addToQueue(int value) {
+    public void addToQueue(int value){
 
         QueueElement item = new QueueElement(value);
 
