@@ -1,22 +1,33 @@
 package Graphs;
 
-/**
- * Created by artur on 20.08.2017.
- */
 public class GraphGnk {
 
-    public static Edge [] generateGnk (int n, int k) {
-        Edge [] result = Structures.generateEdgeArray(n);
+    /*
+    Do pustego grafu dodajemy k krawędzi, losowo wybranych
+    spośród puli jeszccze nie wylosowanych
+     */
+    public static Edge[] generateGnk(int vertexNumber, int edgesNumber) {
+        Edge[] result = Structures.generateEdgeArray(vertexNumber);
 
-        int h = n*(n-1)/2;
+        /* liczba elementów tablicy typów Edge */
+        int maxEdgesNumber = vertexNumber*(vertexNumber-1)/2;
 
-        if(k <= h) {
-            for (int i =0; i < k; i++) {
-                int random = (int)(Math.random()*h);
-                Edge temp = result [random];
-                result [random] = result [h-1];
-                result [h-1] = temp;
-                h--;
+        /* warunek, czy uzytkownik nie podał K większego niż k
+        maksymalne dla danego grafu
+         */
+        if (edgesNumber <= maxEdgesNumber) {
+            /* k razy wykonujemy losowanie krawędzi */
+            for(int i =0;i < edgesNumber;i++) {
+                int random = (int)(Math.random()*maxEdgesNumber);
+
+                /* zamieniamy wylosowaną krawędź z ostatnim
+                elementem z "niewylosowanych"
+                 */
+                Edge temp = result[random];
+                result[random] = result[maxEdgesNumber-1];
+                result[maxEdgesNumber-1] = temp;
+                /* zmniejszamy zakres losowania */
+                maxEdgesNumber--;
             }
         }
 
