@@ -4,24 +4,53 @@ package Graphs;
  * Created by artur on 20.08.2017.
  */
 public class Graphs {
-
     public static void main(String[] args) {
-        //generateGnp (4, 0.5);
-        //generateGnk(4,3);
-        transformEtoA(4,3);
-    }
-    public static void generateGnp (int n, double p) {
-        boolean [][] result = GraphGnp.generateGnp(n,p);
-        PrintStructues.printA(result);
+
+//        generateGnk(4,3);
+//        generateGnp(4, 0.5);
+//        transformEtoA(4,3);
+//        transformAtoE(4,0.5);
+//        getTrianglesCounter(4, 0.99);
+        generateGnf(4, 2);
     }
 
-    public static void generateGnk (int n, int k) {
-        Edge[] result = GraphGnk.generateGnk(n,k);
-        PrintStructues.printE(result);
+    private static void generateGnp(int vertexNumber, double probability) {
+        boolean[][] matrixA = GraphGnp.generateGnp(vertexNumber, probability);
+
+        PrintStructures.printA(matrixA);
     }
-    public static void transformEtoA (int n, int k) {
-       Edge[] graphGnk = GraphGnk.generateGnk(n,k);
-        boolean[][] result = Transforms.transformEtoA(n,k, graphGnk);
-        PrintStructues.printA(result);
+
+    private static void generateGnk(int vertexNumber, int edgesNumber) {
+        Edge[] edgesArray = GraphGnk.generateGnk(vertexNumber, edgesNumber);
+
+        PrintStructures.printE(edgesArray);
+    }
+
+    private static void generateGnf(int vertexNumber, int maxVertexDegree) {
+        Edge2[] edges2Array = GraphGnf.generateGraphGnf(vertexNumber, maxVertexDegree);
+        PrintStructures.printE2(edges2Array);
+    }
+
+    private static void transformAtoE(int vertexNumber, double probability) {
+        boolean[][] matrixA = GraphGnp.generateGnp(vertexNumber, probability);
+
+        PrintStructures.printA(matrixA);
+        Edge[] edgesArray = Transforms.transformAtoE(matrixA, vertexNumber);
+        PrintStructures.printE(edgesArray);
+    }
+
+    private static void transformEtoA(int vertexNumber, int edgesNumber) {
+        Edge[] graphGnk = GraphGnk.generateGnk(vertexNumber,edgesNumber);
+
+        PrintStructures.printE(graphGnk);
+        boolean[][] result = Transforms.transformEtoA(vertexNumber, edgesNumber, graphGnk);
+        PrintStructures.printA(result);
+    }
+
+    private static void getTrianglesCounter(int vertexNumber, double probability) {
+        boolean[][] matrixA = GraphGnp.generateGnp(vertexNumber, probability);
+
+        PrintStructures.printA(matrixA);
+        System.out.println(Triangles.getGraphTrianglesCounter(matrixA, vertexNumber));
     }
 }
